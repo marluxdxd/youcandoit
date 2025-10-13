@@ -1,6 +1,9 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/bottom_nav_bar.dart';
+import 'package:flutter_application_1/column.dart';
 import 'package:flutter_application_1/row.dart';
+import 'package:flutter_application_1/row2.dart';
+import 'package:flutter_application_1/row3.dart';
 
 class Test extends StatelessWidget {
   const Test({super.key});
@@ -11,103 +14,84 @@ class Test extends StatelessWidget {
   }
 }
 
-
-
-
-
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    super.key, 
-    required this.title
-  });
-
+  const MyHomePage({super.key, required this.title});
   final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
-
-
-
   @override
   Widget build(BuildContext context) {
-  
-    return 
-    Scaffold(
-      body:
-       Container(
-        color:Colors.blue,
-        width: double.infinity,
-        child:
-          Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            
-            Container(
+    return Scaffold(
+      backgroundColor: Colors.white,
+
+      // ✅ Main body of the page
+      body: SafeArea(
+        child: ScrollConfiguration(
+          behavior: NoGlowBehavior(), // 👈 removes glow and scrollbar
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(), // smooth scroll like iOS
+            child: Container(
               color: Colors.white,
-              child: Row(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Lighting Deals",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+                  RowView2(),
+                  RowView3(), // your horizontal scroll section
+
+                  // 🔹 Title section
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Lighting Deals",
+                          textAlign: TextAlign.start,
+                          style: const TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Icon(Icons.bolt, size: 35, color: Colors.yellow),
+                      ],
                     ),
                   ),
-                  Icon(
-                     Icons.emoji_emotions, color: Colors.yellow,),
+
+                  RowView(),
+                  ColumnView(),
+
+                  const SizedBox(height: 100),
+                  const Text("Testing123"),
+
+                  // ❌ Spacer() not needed here — breaks scroll
                 ],
               ),
             ),
+          ),
+        ),
+      ),
 
-
-
-            RowView(),
-            SizedBox(
-              height: 100,),
-            Text(
-              "TEST2"),
-            Spacer()
-          ]
-        )
-      )
+      // ✅ Bottom navigation bar
+      bottomNavigationBar: const ButtomView(),
     );
+  }
+}
 
+// 👇 This removes both scroll glow and scrollbar
+class NoGlowBehavior extends ScrollBehavior {
+  @override
+  Widget buildOverscrollIndicator(
+      BuildContext context, Widget child, ScrollableDetails details) {
+    return child;
+  }
 
-
-    // Scaffold(
-    //   appBar: AppBar(
-    //     backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-    //     title: Text(widget.title),
-    //   ),
-    //   body:
-    //
-    //
-    //
-    //
-    //
-    //
-    // Center(
-    //     child: Column(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: <Widget>[
-    //         const Text('You have pushed the button this many times:'),
-    //         Text(
-    //           '$_counter',
-    //           style: Theme.of(context).textTheme.headlineMedium,
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    //   floatingActionButton: FloatingActionButton(
-    //     onPressed: _incrementCounter,
-    //     tooltip: 'Increment',
-    //     child: const Icon(Icons.add),
-    //   ),
-    // );
+  @override
+  Widget buildScrollbar(
+      BuildContext context, Widget child, ScrollableDetails details) {
+    return child;
   }
 }
