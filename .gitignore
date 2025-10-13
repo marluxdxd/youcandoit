@@ -63,7 +63,8 @@
 !images/
 !images/**
 !pubspec.yaml
-!.gitignore
+!.gitignore 
+# include   
 
 # Ignore system and build folders
 .dart_tool/
