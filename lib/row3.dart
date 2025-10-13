@@ -40,7 +40,7 @@ class _RowView3State extends State<RowView3> {
   Widget _buildButton(String label, int index) {
     final bool isActive = _selectedIndex == index;
 
-    return GestureDetector(
+    return GestureDetector(  
       onTap: () {
         setState(() {
           _selectedIndex = index;
