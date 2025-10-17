@@ -5,14 +5,6 @@ import 'package:flutter_application_1/row.dart';
 import 'package:flutter_application_1/row2.dart';
 import 'package:flutter_application_1/row3.dart';
 
-// class Test extends StatelessWidget {
-//   const Test({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
 
 
 
