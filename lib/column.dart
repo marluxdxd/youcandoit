@@ -8,7 +8,7 @@ class ColumnView extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(15.0), // adjust sa top gamay
+          padding: const EdgeInsets.all(15.0), // adjust sa top gamays
           child: Center(
             child: Container(
               decoration: BoxDecoration(
