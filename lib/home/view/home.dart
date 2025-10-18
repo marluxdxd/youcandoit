@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int myIndex = 0;
+  int myIndex = 2;
   List<Widget> widgetList = const [
       CommunityView(),
       ScheduleView(),

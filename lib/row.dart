@@ -136,8 +136,6 @@ class _RowViewState extends State<RowView> {
           ),
         ),
 
-
-        
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
           child: Container(
@@ -154,23 +152,22 @@ class _RowViewState extends State<RowView> {
                       myIndex2 = 0;
                     });
                   },
-                child:
-                Container(
-                  width: 160,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                    color: myIndex2 == 0 ? Colors.blueGrey : Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    "All",
-                    style: TextStyle(
-                      color: myIndex2 == 0 ? Colors.white : Colors.black54,
-                      fontWeight: FontWeight.bold,
+                  child: Container(
+                    width: 160,
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    decoration: BoxDecoration(
+                      color: myIndex2 == 0 ? Colors.blueGrey : Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "All",
+                      style: TextStyle(
+                        color: myIndex2 == 0 ? Colors.white : Colors.black54,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -178,24 +175,24 @@ class _RowViewState extends State<RowView> {
                       myIndex2 = 1;
                     });
                   },
-              
-               child:  Container(
-                  width: 160,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                    color: myIndex2 == 1 ? Colors.blueGrey : Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Free",
-                    style: TextStyle(
-                      color: myIndex2 == 1 ? Colors.white : Colors.black54,
-                      fontWeight: FontWeight.bold,
+
+                  child: Container(
+                    width: 160,
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    decoration: BoxDecoration(
+                      color: myIndex2 == 1 ? Colors.blueGrey : Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Free",
+                      style: TextStyle(
+                        color: myIndex2 == 1 ? Colors.white : Colors.black54,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-            ),
               ],
             ),
           ),
