@@ -1,0 +1,1 @@
+// gi sudlan file para ma save nako.

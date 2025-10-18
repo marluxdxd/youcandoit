@@ -1,20 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/bottom_nav_bar.dart';
-import 'package:flutter_application_1/column.dart';
-import 'package:flutter_application_1/row.dart';
-import 'package:flutter_application_1/row2.dart';
-import 'package:flutter_application_1/row3.dart';
-
-// class Test extends StatelessWidget {
-//   const Test({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
-
-
+import 'package:flutter_application_1/main.dart';
+import 'package:flutter_application_1/home/view/community.dart';
+import 'package:flutter_application_1/home/view/insights.dart';
+import 'package:flutter_application_1/home/view/redeem.dart';
+import 'package:flutter_application_1/home/view/schedule.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -25,38 +14,56 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int myIndex = 0;
+  List<Widget> widgetList = const [
+      CommunityView(),
+      ScheduleView(),
+      InsightsView(),
+      RedeemView(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(  
       backgroundColor: Colors.white,
 
       // ✅ Main body of the page
       body: SafeArea(
-        child: ScrollConfiguration(
-          behavior: NoGlowBehavior(), // 👈 removes glow and scrollbar
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(), // smooth scroll like iOS
-            child: Container(
-              color: Colors.white,
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  RowView2(),
-                  RowView3(), // your horizontal scroll section
-                  RowView(),
-                  ColumnView(),
-
-                  // ❌ Spacer() not needed here — breaks scroll
-                ],
-              ),
-            ),
-          ),
-        ),
+        child: widgetList[myIndex],
+     
       ),
 
-      // ✅ Bottom navigation bar
-      bottomNavigationBar: const ButtomNavView(),
+    bottomNavigationBar: BottomNavigationBar(
+      onTap: (index){
+        setState(() {
+          
+          myIndex = index;
+        });
+
+      },
+      currentIndex: myIndex,
+      selectedLabelStyle: TextStyle(fontSize: 11),
+      unselectedLabelStyle: TextStyle(fontSize: 11), 
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.white,
+      selectedItemColor: Colors.blue,
+      unselectedItemColor: Colors.grey,
+      items:  [
+      BottomNavigationBarItem(icon: Icon(Icons.people),label: 'Community'),
+      BottomNavigationBarItem(icon: Icon(Icons.calendar_today),label: 'Schedule'),
+      BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+      BottomNavigationBarItem(icon: Icon(Icons.bar_chart),label: 'Insights'),
+      BottomNavigationBarItem(icon: Icon(Icons.redeem),label: 'Redeem'),
+    ],),
+
+
+
+
+
+
+
+
+
     );
   }
 }

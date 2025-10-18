@@ -1,8 +1,8 @@
 // insights_page.dart
 import 'package:flutter/material.dart';
 
-class InsightsPage extends StatelessWidget {
-  const InsightsPage({super.key});
+class InsightsView extends StatelessWidget {
+  const InsightsView({super.key});
 
   @override
   Widget build(BuildContext context) {
