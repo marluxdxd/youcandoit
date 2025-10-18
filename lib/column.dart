@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ColumnView extends StatelessWidget {
+class ColumnView extends StatefulWidget {
   const ColumnView({super.key});
 
+  @override
+  State<ColumnView> createState() => _ColumnViewState();
+}
+
+class _ColumnViewState extends State<ColumnView> {
+  int? columnselect;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,6 +27,13 @@ class ColumnView extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child:  
+          GestureDetector(
+            onTap: (){
+              setState(() {
+                columnselect = 0;
+              });
+            },
           child: Container(
             width: double.infinity,
             height: 120,
@@ -29,6 +42,8 @@ class ColumnView extends StatelessWidget {
               color: Colors.grey,
               borderRadius: BorderRadius.circular(20),
               boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)],
+              border:  Border.all(color:columnselect == 0 ? Colors.black : Colors.white),
+              
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,11 +124,18 @@ class ColumnView extends StatelessWidget {
               ],
             ),
           ),
+          ),
         ),
 
         SizedBox(height: 15), // para ma naay space
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: GestureDetector(
+            onTap: (){
+              setState(() {
+                columnselect = 1;
+              });
+            },
           child: Container(
             width: double.infinity,
             height: 120,
@@ -122,6 +144,7 @@ class ColumnView extends StatelessWidget {
               color: Colors.grey,
               borderRadius: BorderRadius.circular(20),
               boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)],
+                border:  Border.all(color:columnselect == 1 ? Colors.black : Colors.white),
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,6 +221,7 @@ class ColumnView extends StatelessWidget {
                 ),
               ],
             ),
+          ),
           ),
         ),
       ],

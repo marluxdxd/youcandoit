@@ -1,94 +1,139 @@
 import 'package:flutter/material.dart';
 
-class RowView2 extends StatelessWidget {
+class RowView2 extends StatefulWidget {
   const RowView2({super.key});
+
+  @override
+  State<RowView2> createState() => _RowView2State();
+}
+
+class _RowView2State extends State<RowView2> {
+  int? onpressed; // 👈 default none selected
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left:20,), // ang left ra ma adjust
-  //    padding: EdgeInsets.all(10), // adds space *inside* the box
+      padding: const EdgeInsets.only(left: 20),
       color: Colors.white,
       child: Row(
         spacing: 10,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Container(
-                              child: Icon(Icons.settings, 
-                size: 40,),
-              ),
-            ],
-          ),
-          Container(
-            alignment: Alignment.center,
-           
-            child: Icon(Icons.circle_outlined,color: Colors.blue,
-            size: 40,),
-          ),
-          Container(
-            height: 50,
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            decoration: BoxDecoration(
-             borderRadius: BorderRadius.circular(20),border:Border.all(color:Colors.black.withOpacity(0.2)),
-                color: Colors.blueGrey.withOpacity(0.3)  ,
-              ),
-           
-            child: Row(
-              children: [
-                
-                Icon(Icons.settings,
-                size: 15,),
-                Text('2'),
-              ],
-            ),
-            
-          ),
-          SizedBox(width: 15,),
-           Container(
-            height: 50,
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),border:Border.all(color:Colors.black.withOpacity(0.2)),
-                color: Colors.white  ,
-              ),
-           
-            child: Row(
-              children: [
-                
-                SizedBox(
-                  child: Icon(Icons.settings,
-                  size: 15,),
+          // ✅ ICON 0
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                onpressed = 0;
+              });
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: onpressed == 0 ? Colors.black : Colors.transparent,
                 ),
-                Text('2'),
-              ],
-            ),
-            
-          ),
-          Container(
-            height: 50,
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),border:Border.all(color:Colors.black.withOpacity(0.2)),
-                color: Colors.white  ,
               ),
-           
-            child: Row(
-              children: [
-                
-                Icon(Icons.settings,
-                size: 15,),
-                Text('10'),
-              ],
+              child: const Icon(Icons.settings, size: 40),
             ),
-            
           ),
 
+          // ✅ ICON 1
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                onpressed = 1;
+              });
+            },
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: onpressed == 1 ? Colors.black : Colors.transparent,
+                ),
+              ),
+              child: const Icon(Icons.circle_outlined, color: Colors.blue, size: 40),
+            ),
+          ),
+
+          // ✅ ICON 2
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                onpressed = 2;
+              });
+            },
+            child: Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: onpressed == 2 ? Colors.black : Colors.transparent,
+                ),
+                color: Colors.blueGrey.withOpacity(0.3),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.settings, size: 15),
+                  Text('2'),
+                ],
+              ),
+            ),
+          ),
+
+          const SizedBox(width: 15),
+
+          // ✅ ICON 3
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                onpressed = 3;
+              });
+            },
+            child: Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: onpressed == 3 ? Colors.black : Colors.transparent,
+                ),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.settings, size: 15),
+                  Text('2'),
+                ],
+              ),
+            ),
+          ),
+
+          // ✅ ICON 4
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                onpressed = 4;
+              });
+            },
+            child: Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: onpressed == 4 ? Colors.black : Colors.transparent,
+                ),
+                color: Colors.white,
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.settings, size: 15),
+                  Text('10'),
+                ],
+              ),
+            ),
+          ),
         ],
-        
       ),
-     
     );
   }
 }
