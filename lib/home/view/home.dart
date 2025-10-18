@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/home/view/community.dart';
 import 'package:flutter_application_1/home/view/insights.dart';
 import 'package:flutter_application_1/home/view/redeem.dart';
 import 'package:flutter_application_1/home/view/schedule.dart';
+
+
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        '🏠 Welcome to the Home Page!',
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -18,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> widgetList = const [
       CommunityView(),
       ScheduleView(),
+      HomeView(),
       InsightsView(),
       RedeemView(),
   ];

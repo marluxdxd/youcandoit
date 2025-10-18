@@ -9,37 +9,28 @@ class RowView extends StatefulWidget {
 
 class _RowViewState extends State<RowView> {
   int? _selectedIndex; // keeps track of which item is tapped
+  int myIndex2 = 0;
 
   @override
   Widget build(BuildContext context) {
-      return Column(
-      crossAxisAlignment: CrossAxisAlignment.start, // 👈 aligns text to the left
+    return Column(
+      crossAxisAlignment:
+          CrossAxisAlignment.start, // 👈 aligns text to the left
       children: [
         // 🔹 Wrap text in Padding for clean alignment
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Row(
             children: [
-              Text("Lighting Deals",
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-            ),
+              Text(
+                "Lighting Deals",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
-              Icon(
-                Icons.bolt,
-                 size: 35,
-                  color: Colors.yellow
-                  ),
-            ]
-            
-            
+              Icon(Icons.bolt, size: 35, color: Colors.yellow),
+            ],
           ),
-      
-          
         ),
-        
-        
+
         Container(
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
@@ -65,7 +56,9 @@ class _RowViewState extends State<RowView> {
                           duration: const Duration(milliseconds: 200),
                           decoration: BoxDecoration(
                             color: _selectedIndex == index
-                                ? Colors.blue.shade50 // activated color
+                                ? Colors
+                                      .blue
+                                      .shade50 // activated color
                                 : Colors.white,
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
@@ -89,9 +82,14 @@ class _RowViewState extends State<RowView> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              const Text("20% off", textAlign: TextAlign.center),
-                              const Text("Stylish reusable bottles",
-                                  textAlign: TextAlign.start),
+                              const Text(
+                                "20% off",
+                                textAlign: TextAlign.center,
+                              ),
+                              const Text(
+                                "Stylish reusable bottles",
+                                textAlign: TextAlign.start,
+                              ),
                               SizedBox(
                                 width: 180,
                                 child: Row(
@@ -137,6 +135,71 @@ class _RowViewState extends State<RowView> {
             ),
           ),
         ),
+
+
+        
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      myIndex2 = 0;
+                    });
+                  },
+                child:
+                Container(
+                  width: 160,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    color: myIndex2 == 0 ? Colors.blueGrey : Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    "All",
+                    style: TextStyle(
+                      color: myIndex2 == 0 ? Colors.white : Colors.black54,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      myIndex2 = 1;
+                    });
+                  },
+              
+               child:  Container(
+                  width: 160,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    color: myIndex2 == 1 ? Colors.blueGrey : Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Free",
+                    style: TextStyle(
+                      color: myIndex2 == 1 ? Colors.white : Colors.black54,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+            ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -146,13 +209,19 @@ class _RowViewState extends State<RowView> {
 class NoGlowBehavior extends ScrollBehavior {
   @override
   Widget buildOverscrollIndicator(
-      BuildContext context, Widget child, ScrollableDetails details) {
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
     return child;
   }
 
   @override
   Widget buildScrollbar(
-      BuildContext context, Widget child, ScrollableDetails details) {
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
     return child;
   }
 }
