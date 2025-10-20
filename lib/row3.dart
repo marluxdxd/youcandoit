@@ -47,7 +47,7 @@ class _RowView3State extends State<RowView3> {
         });
       },
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 0),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         decoration: BoxDecoration(
           color: isActive ? Colors.blueGrey : Colors.transparent,

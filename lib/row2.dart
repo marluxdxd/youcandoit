@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/home/view/home.dart';
+import 'package:flutter_application_1/home/view/settings_page.dart';
 
 class RowView2 extends StatefulWidget {
   const RowView2({super.key});
@@ -25,7 +27,12 @@ class _RowView2State extends State<RowView2> {
               setState(() {
                 onpressed = 0;
               });
+              Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeView()),
+    );
             },
+       
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(

@@ -3,41 +3,17 @@ import 'package:flutter_application_1/home/view/community.dart';
 import 'package:flutter_application_1/home/view/insights.dart';
 import 'package:flutter_application_1/home/view/redeem.dart';
 import 'package:flutter_application_1/home/view/schedule.dart';
-import 'package:flutter_application_1/row2.dart';
+import 'package:flutter_application_1/home/view/home.dart';
 
-
-
-
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50), // 👈 height of your custom top bar
-        child: const SafeArea(
-          child: RowView2(), // 👈 your custom top bar widget
-        ),
-      ),
-      body: const Center(
-        child: Text('Home'),
-      ),
-    );
-  }
-}
-
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class SettingsView extends StatefulWidget {
+  const SettingsView({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SettingsView> createState() => _SettingsViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SettingsViewState extends State<SettingsView> {
   int myIndex = 2;
   List<Widget> widgetList = const [
       CommunityView(),
@@ -45,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
       HomeView(),
       InsightsView(),
       RedeemView(),
-  
+
   ];
 
   @override
@@ -92,20 +68,5 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
     );
-  }
-}
-
-// 👇 This removes both scroll glow and scrollbar
-class NoGlowBehavior extends ScrollBehavior {
-  @override
-  Widget buildOverscrollIndicator(
-      BuildContext context, Widget child, ScrollableDetails details) {
-    return child;
-  }
-
-  @override
-  Widget buildScrollbar(
-      BuildContext context, Widget child, ScrollableDetails details) {
-    return child;
   }
 }
