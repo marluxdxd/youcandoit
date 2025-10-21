@@ -82,15 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
       BottomNavigationBarItem(icon: Icon(Icons.redeem),label: 'Redeem'),
       
     ],),
-
-
-
-
-
-
-
-
-
     );
   }
 }
