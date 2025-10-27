@@ -18,7 +18,7 @@ class HomeView extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50), // 👈 height of your custom top bar
         child: const SafeArea(
-          child: RowView2(), // 👈 your custom top bar widget
+          child: RowView2(),
         ),
       ),
       body: const Center(
