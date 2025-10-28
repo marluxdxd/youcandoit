@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home/view/bottom_page.dart';
+
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -8,16 +8,23 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: Text('Settings',style: TextStyle(color: Colors.black,fontSize: 18),),
+        leading: Container(
+          child: IconButton(
+            
+            icon: Icon(Icons.arrow_back, size:18),
+            
+            
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+
       ),
-      body: SafeArea(
-        child:
-         Text(
-          'Test'
-          )),
-      bottomNavigationBar: BottomView(),
+        
       
-    
+      
     );
   }
 }

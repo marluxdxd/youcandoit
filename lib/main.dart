@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/home/view/bottom_page.dart';
 import 'home/view/home.dart';
 
 void main() {
@@ -14,12 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-      ),
+   
 
-      home: //Test()
-       const MyHomePage(title: 'Flutter Demo Home Page'), 
+      home: MainScreen(), 
     );
   }
 }
