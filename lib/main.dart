@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home/view/bottom_page.dart';
-import 'home/view/home.dart';
+import 'package:flutter_application_1/home/view/home.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
    
 
-      home: MainScreen(), 
+      home: MyHomePage(title: 'Flutter Demo Home Page',), 
     );
   }
 }
