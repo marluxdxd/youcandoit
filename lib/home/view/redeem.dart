@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/column.dart';
+import 'package:flutter_application_1/home/ModalView.dart';
 import 'package:flutter_application_1/row.dart';
 import 'package:flutter_application_1/row2.dart';
 import 'package:flutter_application_1/row3.dart';
@@ -12,6 +14,14 @@ class RedeemView extends StatefulWidget {
 }
 
 class _RedeemViewState extends State<RedeemView> {
+
+bool _isModalVisible = false;
+
+void _toggleModal() {
+  setState(() {
+    _isModalVisible = !_isModalVisible;
+  });
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,21 +29,41 @@ class _RedeemViewState extends State<RedeemView> {
 
       // ✅ Main body of the page
       body: SafeArea(
-        child: ScrollConfiguration(
-          behavior: NoGlowBehavior(), // 👈 removes glow and scrollbar
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(), // smooth scroll like iOS
-            child: Container(
-              color: Colors.white,
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [RowView2(), RowView3(), RowView(), ColumnView()],
-              ),
-            ),
+  child: ScrollConfiguration(
+    behavior: NoGlowBehavior(),
+    child: SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Stack(
+        alignment: AlignmentDirectional.center,
+        children: [
+
+       
+          // 👇 First layer 
+          Container(
+            color: Colors.white,
+            width: double.infinity,
           ),
-        ),
+
+          // 👇 Second layer
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RowView2(),
+              RowView3(),
+              RowView(),
+              ColumnView(),
+            ],
+          ),
+     
+   
+          // 👇 Third Layer
+     
+        ],
       ),
+    ),
+  ),
+),
+
     );
   }
 }

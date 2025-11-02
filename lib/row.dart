@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home/view/custom_bottom_modal.dart';
+import 'package:flutter_application_1/home/ModalView.dart';
+import 'package:flutter_application_1/home/ModalView2.dart';
 
 class RowView extends StatefulWidget {
   const RowView({super.key});
@@ -30,255 +31,257 @@ class _RowViewState extends State<RowView> {
               ),
               const Icon(Icons.bolt, size: 35, color: Colors.yellow),
 
-              // IconButton(
-              //   onPressed: () {
-              //     showModalBottomSheet(
-              //       context: context,
-              //       isScrollControlled: true,
-              //       shape: const RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-              //       ),
-              //       builder: (context) => const CustomBottomModal(), // 👈 imported class
-              //     );
-              //   },
-              //   icon: const Icon(Icons.ac_unit_outlined` ),
-              // ),
+              //START
             ],
           ),
         ),
         Container(
-          
           child: Padding(
-             padding: const EdgeInsets.only(top: 10),
-           
+            padding: const EdgeInsets.only(top: 10),
+
             child: ScrollConfiguration(
               behavior: NoGlowBehavior(),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                        
-                children: [
-                  Container(
-                    width: 250.0,
-                    height: 270.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: Column(
-                      children: [
-                        // 1st column
-                        Container(
-                          width: 250,
-                          height: 150,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    children: [
+                      //START
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              barrierColor: Colors.black.withOpacity(0.9),
+                            context: context,
+                            builder: (context) => ModalView(),
+                          );
+                        },
+                        child: Container(
+                          width: 250.0,
+                          height: 270.0,
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                            image: DecorationImage(
-                              image: AssetImage('images/Zombatar_2.jpg'),
-                              fit: BoxFit.cover,
-                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            border: Border.all(color: Colors.grey),
                           ),
-                        ),
-                        
-                        //2nd column
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                      
-                          ),
-                          width: 250.0,
-                          height: 40.0,
-                          color: Colors.white,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [Text('20% Off')],
-                          ),
-                        ),
-                        
-                        //3rd column
-                        Container(
-                             padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                      
-                          ),
-                        
-                          width: 250.0,
-                          color: Colors.white,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [Text('Stylish reusable bottles')],
-                          ),
-                        ),
-                        //4th column
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 4,
-                          ),
-                        
-                          width: 250.0,
-                          height: 50.0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          child: Column(
                             children: [
+                              // 1st column
                               Container(
+                                width: 250,
+                                height: 150,
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[200],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Text(
-                                  'Free',
-                                  style: TextStyle(color: Colors.indigo),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                  ),
+                                  image: DecorationImage(
+                                    image: AssetImage('images/Zombatar_2.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
+
+                              //2nd column
                               Container(
-                                height: 20,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[600],
-                                  shape: BoxShape.circle,
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                width: 250.0,
+                                height: 40.0,
+                                color: Colors.white,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [Text('20% Off')],
                                 ),
-                                child: Text(
-                                  'SHo',
-                                  style: TextStyle(
-                                    color: Colors.indigo,
-                                    fontSize: 9,
-                                  ),
+                              ),
+
+                              //3rd column
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+
+                                width: 250.0,
+                                color: Colors.white,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [Text('Stylish reusable bottles')],
+                                ),
+                              ),
+                              //4th column
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 4,
+                                ),
+
+                                width: 250.0,
+                                height: 50.0,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey[200],
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Text(
+                                        'Free',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 20,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey[600],
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Text(
+                                        'SHo',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 9,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 10.0),
-                        
-                        
-                  Container(
-                    width: 250.0,
-                    height: 270.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: Column(
-                      children: [
-                        // 1st column
-                        Container(
-                          width: 250,
-                          height: 150,
+                      ),
+                      SizedBox(width: 10.0),
+
+                         GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => ModalView2(),
+                          );
+                        },
+                        child: Container(
+                          width: 250.0,
+                          height: 270.0,
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                            image: DecorationImage(
-                              image: AssetImage('images/Zombatar_2.jpg'),
-                              fit: BoxFit.cover,
-                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            border: Border.all(color: Colors.grey),
                           ),
-                        ),
-                        
-                        //2nd column
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                      
-                          ),
-                          width: 250.0,
-                          height: 40.0,
-                          color: Colors.white,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [Text('20% Off')],
-                          ),
-                        ),
-                        
-                        //3rd column
-                        Container(
-                             padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                      
-                          ),
-                        
-                          width: 250.0,
-                          color: Colors.white,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [Text('Stylish reusable bottles')],
-                          ),
-                        ),
-                        //4th column
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 4,
-                          ),
-                        
-                          width: 250.0,
-                          height: 50.0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          child: Column(
                             children: [
+                              // 1st column
                               Container(
+                                width: 250,
+                                height: 150,
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[200],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Text(
-                                  'Free',
-                                  style: TextStyle(color: Colors.indigo),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                  ),
+                                  image: DecorationImage(
+                                    image: AssetImage('images/Zombatar_2.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
+
+                              //2nd column
                               Container(
-                                height: 20,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[600],
-                                  shape: BoxShape.circle,
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                width: 250.0,
+                                height: 40.0,
+                                color: Colors.white,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [Text('20% Off')],
                                 ),
-                                child: Text(
-                                  'SHo',
-                                  style: TextStyle(
-                                    color: Colors.indigo,
-                                    fontSize: 9,
-                                  ),
+                              ),
+
+                              //3rd column
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+
+                                width: 250.0,
+                                color: Colors.white,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [Text('Stylish reusable bottles')],
+                                ),
+                              ),
+                              //4th column
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 4,
+                                ),
+
+                                width: 250.0,
+                                height: 50.0,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey[200],
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Text(
+                                        'Free',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 20,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey[600],
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Text(
+                                        'SHo',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 9,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+
+                      //END
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
             ),
           ),
         ),
 
+        Stack(
+          children: [Container(child: Center(child: Text('Marlu')))],
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
-               boxShadow: [
-    BoxShadow(
-      color: Colors.black,
-      blurRadius:1,
-      offset: Offset(4,0),
-    ),
-  ],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 1,
+                  offset: Offset(0, 0),
+                ),
+              ],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
