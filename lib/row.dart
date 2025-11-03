@@ -48,11 +48,12 @@ class _RowViewState extends State<RowView> {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
                     children: [
+
                       //START
                       GestureDetector(
                         onTap: () {
                           showDialog(
-                              barrierColor: Colors.black.withOpacity(0.9),
+                              barrierColor: Colors.black.withOpacity(0.2),
                             context: context,
                             builder: (context) => ModalView(),
                           );
@@ -265,10 +266,9 @@ class _RowViewState extends State<RowView> {
             ),
           ),
         ),
+    SizedBox(height: 15.0),
+        // Add here Widget ex. Container(),
 
-        Stack(
-          children: [Container(child: Center(child: Text('Marlu')))],
-        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
           child: Container(
@@ -309,6 +309,8 @@ class _RowViewState extends State<RowView> {
                     ),
                   ),
                 ),
+
+               
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -335,8 +337,11 @@ class _RowViewState extends State<RowView> {
                 ),
               ],
             ),
+            
           ),
+          
         ),
+             SizedBox(height: 15.0),
       ],
     );
   }

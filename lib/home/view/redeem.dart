@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/column.dart';
-import 'package:flutter_application_1/home/ModalView.dart';
 import 'package:flutter_application_1/row.dart';
 import 'package:flutter_application_1/row2.dart';
 import 'package:flutter_application_1/row3.dart';
