@@ -61,6 +61,8 @@
 !assets/
 !assets/**
 !images/
+!fonts/
+!fonts/**
 !images/**
 !pubspec.yaml
 !.gitignore 

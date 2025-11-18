@@ -5,7 +5,7 @@ import 'package:flutter_application_1/home/model/popular_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class TestPage extends StatefulWidget {
-  TestPage({super.key});
+  const TestPage({super.key});
 
   @override
   State<TestPage> createState() => _TestPageState();
@@ -80,6 +80,17 @@ class _TestPageState extends State<TestPage> {
                       itemBuilder: (context,index){
                         return Container(
                           height: 115,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color:Color(0xff1D1617).withOpacity(0.07),
+                                offset: Offset(0,10),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                              )
+                            ]
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -116,17 +127,6 @@ class _TestPageState extends State<TestPage> {
                                 ],
                               ),
                             ],),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: [
-                              BoxShadow(
-                                color:Color(0xff1D1617).withOpacity(0.07),
-                                offset: Offset(0,10),
-                                blurRadius: 40,
-                                spreadRadius: 0,
-                              )
-                            ]
-                          ),
                         ); 
                       },
                     ),
@@ -158,7 +158,7 @@ class _TestPageState extends State<TestPage> {
               ),
             ),
             SizedBox(height: 15),
-            Container(
+            SizedBox(
               height: 240,
               child: ListView.separated(
                 itemBuilder: (context, index) {
@@ -183,11 +183,7 @@ class _TestPageState extends State<TestPage> {
                               ),
                             ),
                             Text(
-                              diets[index].level +
-                                  '  |' +
-                                  diets[index].duration +
-                                  '  |' +
-                                  diets[index].calorie,
+                              '${diets[index].level}  |${diets[index].duration}  |${diets[index].calorie}',
                               style: TextStyle(
                                 color: Color(0xff7B6F72),
                                 fontSize: 13,
@@ -200,16 +196,6 @@ class _TestPageState extends State<TestPage> {
                         Container(
                           height: 45,
                           width: 130,
-                          child: Center(
-                            child: Text(
-                              'View',
-                              style: TextStyle(
-                                color: diets[index].viewIsSelected ? Colors.white : Color(0xffC588F2),
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ),
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
@@ -222,6 +208,16 @@ class _TestPageState extends State<TestPage> {
                               ],
                             ),
                             borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'View',
+                              style: TextStyle(
+                                color: diets[index].viewIsSelected ? Colors.white : Color(0xffC588F2),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -254,7 +250,7 @@ class _TestPageState extends State<TestPage> {
           ),
         ),
         SizedBox(height: 15),
-        Container(
+        SizedBox(
           height: 120,
           child: ListView.separated(
             itemCount: categories.length,
@@ -323,7 +319,7 @@ class _TestPageState extends State<TestPage> {
             padding: const EdgeInsets.all(12),
             child: SvgPicture.asset('assets/icons/Search.svg'),
           ),
-          suffixIcon: Container(
+          suffixIcon: SizedBox(
             width: 60,
             child: IntrinsicHeight(
               child: Row(

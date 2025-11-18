@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/home/test.dart';
 
+import 'package:flutter_application_1/home/view/home.dart';
 
 
 void main() {
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
    
 
-      // home: MyHomePage(title: 'Flutter Demo Home Page',), 
-      home: TestPage(),
+      home: MyHomePage(title: 'Flutter Demo Home Page',), 
+      // home: TestPage(),
     );
   }
 }
